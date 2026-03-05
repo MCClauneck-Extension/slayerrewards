@@ -1,11 +1,10 @@
-import io.github.mcclauneck.slayerrewards.gradle.VersionCalculator
-
 plugins {
     id 'java'
+    id 'io.github.mcengine.gradle.plugin.version-calculator'
+    id 'io.github.mcengine.gradle.plugin.plugin-export'
 }
 
 // --- VERSIONING ---
-version = VersionCalculator.calculate(project)
 group = project.property('project-group')
 
 repositories {
