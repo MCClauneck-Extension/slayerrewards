@@ -207,13 +207,13 @@ public class MobDropEditor implements Listener {
         gui.setItem(49, EditorUtil.createSkullButton(toggleB64,
             Component.translatable(
                 cancelDefault ? "mcclauneck.slayerrewards.editor.btn.defaults.off" : "mcclauneck.slayerrewards.editor.btn.defaults.on",
-                cancelDefault ? "Default Drops: OFF" : "Default Drops: ON"))));
+                cancelDefault ? "Default Drops: OFF" : "Default Drops: ON")));
 
         // Save & Reload (Slot 52)
         gui.setItem(52, EditorUtil.createSkullButton("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTc0MjgxZjk2NjlmMmNkY2Y3ODQ4NDQ4YTViYjYyODIzMmVlYTJiZmJkZmM3ZDRmMjBiZGE1MDMzZDAzMzY2YSJ9fX0=",
             Component.translatable(
                 "mcclauneck.slayerrewards.editor.btn.save",
-                "Save & Reload"))));
+                "Save & Reload")));
 
         activeSessions.put(player.getUniqueId(), new EditorSession(mobName, page));
         player.openInventory(gui);
