@@ -8,22 +8,15 @@ plugins {
 version = VersionCalculator.calculate(project)
 group = project.property('project-group')
 
-// --- REPOSITORIES ---
-def mcEngineRepo = { String repoName ->
-    return "https://maven.pkg.github.com/MCEngine/${repoName}"
-}
-
 repositories {
     mavenCentral()
-    
-    // MCEngine Repositories
-    ['mcextension', 'mceconomy'].each { repo ->
-        maven {
-            url = uri(mcEngineRepo(repo))
-            credentials {
-                username = System.getenv("USER_GITHUB_NAME") ?: System.getenv("GITHUB_ACTOR")
-                password = System.getenv("USER_GITHUB_TOKEN") ?: System.getenv("GITHUB_TOKEN")
-            }
+
+    maven {
+        name = 'mcclauneck-plugin'
+        url = uri('https://maven.pkg.github.com/MCClauneck/plugin-papermc')
+        credentials {
+            username = System.getenv('GITHUB_ACTOR') ?: System.getenv('AGENT_NAME') ?: System.getenv('USER_GITHUB_NAME')
+            password = System.getenv('GITHUB_TOKEN') ?: System.getenv('AGENT_TOKEN') ?: System.getenv('USER_GITHUB_TOKEN')
         }
     }
 
@@ -35,10 +28,7 @@ repositories {
 
 // --- DEPENDENCIES ---
 dependencies {
-    // MCEngine Core Dependencies
-    compileOnly 'io.github.mcengine:mcextension:2026.0.3-2'
-    compileOnly 'io.github.mcengine:mceconomy-common:2026.0.3-1-SNAPSHOT'
-    compileOnly 'io.github.mcengine:mcutil:2026.0.3-1'
+    compileOnly "io.github.mcclauneck:mceconomy-papermc:2026.0.4-2"
 
     compileOnly 'io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT'
 }
@@ -51,7 +41,9 @@ dependencies {
 processResources {
     def props = [
         'project_version': project.version,
-        'project_group': project.group
+        'project_group': project.group,
+        'git_org_name': project.findProperty('git-org-name'),
+        'git_org_repository': project.findProperty('git-org-repository')
     ]
     
     inputs.properties(props)
