@@ -1,5 +1,7 @@
 plugins {
     id 'groovy-gradle-plugin'
+    id 'io.github.mcengine.gradle.plugin.version-calculator' version '1.0.2'
+    id 'io.github.mcengine.gradle.plugin.plugin-export' version '1.0.2'
 }
 
 repositories {

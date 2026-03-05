@@ -1,8 +1,8 @@
 package io.github.mcclauneck.slayerrewards.common;
 
 import io.github.mcclauneck.slayerrewards.api.IReward;
-import io.github.mcengine.mceconomy.api.enums.CurrencyType;
-import io.github.mcengine.mceconomy.common.MCEconomyProvider;
+import io.github.mcclauneck.mceconomy.api.enums.CurrencyType;
+import io.github.mcclauneck.mceconomy.common.MCEconomyProvider;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Bukkit;

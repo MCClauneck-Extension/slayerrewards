@@ -1,7 +1,7 @@
 package io.github.mcclauneck.slayerrewards.editor;
 
 import io.github.mcclauneck.slayerrewards.editor.util.EditorUtil;
-import io.github.mcengine.mceconomy.api.enums.CurrencyType;
+import io.github.mcclauneck.mceconomy.api.enums.CurrencyType;
 import io.papermc.paper.event.player.AsyncChatEvent;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
