@@ -46,12 +46,18 @@ public class SlayerRewardsCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player player)) {
-            sender.sendMessage(Component.translatable("mcclauneck.slayerrewards.command.only_players", NamedTextColor.RED));
+            sender.sendMessage(Component.translatable(
+                "mcclauneck.slayerrewards.command.only_players",
+                "Only players can use this command.")
+                .color(NamedTextColor.RED));
             return true;
         }
 
         if (!player.hasPermission("slayerrewards.admin")) {
-            player.sendMessage(Component.translatable("mcclauneck.slayerrewards.command.permission_denied", NamedTextColor.RED));
+            player.sendMessage(Component.translatable(
+                "mcclauneck.slayerrewards.command.permission_denied",
+                "You do not have permission to use this command.")
+                .color(NamedTextColor.RED));
             return true;
         }
 
@@ -70,7 +76,10 @@ public class SlayerRewardsCommand implements CommandExecutor {
             return true;
         }
 
-        player.sendMessage(Component.translatable("mcclauneck.slayerrewards.command.usage", NamedTextColor.RED));
+        player.sendMessage(Component.translatable(
+            "mcclauneck.slayerrewards.command.usage",
+            "Usage: /slayerrewards edit <mob> [page]")
+            .color(NamedTextColor.RED));
         return true;
     }
 }
